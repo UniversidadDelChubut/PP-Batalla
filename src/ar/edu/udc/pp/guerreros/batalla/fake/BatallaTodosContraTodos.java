@@ -63,6 +63,8 @@ public class BatallaTodosContraTodos extends BatallaAbstracta {
 			guerreros.add(new GuerreFake(nombresGuerreros[i]));
 		}
 		this.addEjercito(guerreros);
+		
+		GuerreFake.addListener(this);
 	}
 	
 

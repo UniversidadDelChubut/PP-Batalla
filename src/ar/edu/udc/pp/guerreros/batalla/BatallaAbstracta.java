@@ -14,14 +14,14 @@ public abstract class BatallaAbstracta implements GuerrerosListener {
 	public void lanzar(){
 		
 		if (this.ejercitos.isEmpty()) {
-			System.err.println("Antes de lanzar una batalla debe prepararla estableciendo ejércitos - Usar método addEjercito en método Preparar ");
+			System.err.println("Antes de lanzar una batalla debe prepararla estableciendo ejï¿½rcitos - Usar mï¿½todo addEjercito en mï¿½todo Preparar ");
 			return;
 		}
 		
 		while (!this.batallaTerminada()) {
 			InterfazGuerrero [] guerreros = seleccionarContrincantes();
 			if (guerreros== null || guerreros.length != 2 || guerreros[0] == null || guerreros[1] 	== null ){
-				System.err.println("Hay un error en la selección de contrincantes");
+				System.err.println("Hay un error en la selecciï¿½n de contrincantes");
 				return;			
 			}
 			this.ultimoAtaque = null;
@@ -41,16 +41,12 @@ public abstract class BatallaAbstracta implements GuerrerosListener {
 						atacante + 
 						" ataca a " + atacado +
 						(nombreArma != null ? " con " + nombreArma : "") +
-						(danioCausado != null ? " daño causado " + danioCausado : "") +
+						(danioCausado != null ? " daï¿½o causado " + danioCausado : "") +
 						" - Vida restante " + nivelVidaActual
 						);
 				
 	}
 	
-	@Override
-	public void ataque(InterfazGuerrero atacante, InterfazGuerrero atacado, String nombreArma, int danioCausado) {
-		this.ultimoAtaque = new Ataque(atacante, atacado, nombreArma, danioCausado);	
-	}
 	
 	
 	
@@ -86,6 +82,12 @@ public abstract class BatallaAbstracta implements GuerrerosListener {
 		}
 		return contadorEjecritosConSobrevivientes <= 1;
 	}
+
+	@Override
+	public void ataque(InterfazGuerrero atacante, InterfazGuerrero atacado, String nombreArma, int danioCausado) {
+		this.ultimoAtaque = new Ataque(atacante, atacado, nombreArma, danioCausado);	
+	}
+	
 	
 	class Ataque {
 		private InterfazGuerrero atacante;
